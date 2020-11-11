@@ -4,7 +4,7 @@ struct UNKO {
     int flag = 0;
 };
 //äOïîïœêîÇ≈çsÇ´Ç‹Ç∑
-const int NUM = 300;
+const int NUM = 150;
 struct UNKO Unkos[NUM];
 int UnkoImg = 0;
 int CurIdx = 0;
@@ -17,8 +17,8 @@ void launch() {
     angleMode(RADIANS);
     Unkos[CurIdx].flag = 1;
     Unkos[CurIdx].px = width / 2 + sin(Radian) * 10;
-    Unkos[CurIdx].py = -100;
-    Unkos[CurIdx].vy = 5;
+    Unkos[CurIdx].py = -50;
+    Unkos[CurIdx].vy = 10;
     ++CurIdx %= NUM;
     Radian += 0.1f;
 }
@@ -27,7 +27,7 @@ void move() {
     for (int i = 0; i < NUM; i++) {
         if (Unkos[idx].flag) {
             Unkos[idx].py += Unkos[idx].vy;
-            if (Unkos[idx].py > height) {
+            if (Unkos[idx].py > height + 50) {
                 Unkos[idx].flag = 0;
                 DrawIdx = (idx + 1) % NUM;
             }
